@@ -1,3 +1,5 @@
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+
 module.exports = {
   mode: 'spa',
   head: {
@@ -12,6 +14,13 @@ module.exports = {
     color: '#fff'
   },
   build: {
+    transpile: ['vuetify/lib'],
+    plugins: [new VuetifyLoaderPlugin()],
+    loaders: {
+      stylus: {
+        import: ['~assets/style/variables.styl']
+      }
+    },
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         // Run ESLint on save
@@ -29,5 +38,6 @@ module.exports = {
     }
   },
   dev: process.env.NODE_ENV === 'DEV',
-  css: ['@/assets/css/global.css']
+  css: ['~/assets/style/app.styl'],
+  plugins: ['@/plugins/vuetify']
 }
