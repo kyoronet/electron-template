@@ -9,6 +9,9 @@
     "appId": "{{ appId }}",
     "directories": {
       "buildResources": "static"
+    },
+    "win": {
+      "target": "portable"
     }
   },
   "scripts": {
