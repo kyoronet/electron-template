@@ -1,7 +1,16 @@
 module.exports = {
   mode: 'spa',
-  head: { title: '{{name}}' }, // Headers of the page
-  loading: false, // Disable default loading bar
+  head: {
+    // Headers of the page
+    title: '{{name}}',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ]
+  },
+  loading: {
+    color: '#fff'
+  },
   build: {
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
